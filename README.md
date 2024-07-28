@@ -3,7 +3,7 @@ Aplikasi ini adalah aplikasi berbasis web yang bertindak sebagai database aplika
 Berikut adalah cara menggunakan aplikasi ini:
 
 ## Step 1) Download Semua Template excel dan Web
-Download dapat dilakukan secara manual dengan mengekstrak file .rar dari [link berikut](hh). <br>
+Download dapat dilakukan secara manual dengan mengekstrak file .rar dari [link berikut](https://github.com/muhammadzaini213/Admin-Ujian-Kita/archive/refs/heads/main.zip). <br>
 Anda juga bisa langsung clone repository ini menggunakan git bash: <br>
 ```
 cd {file lokasi}
