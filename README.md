@@ -3,7 +3,7 @@ Aplikasi ini adalah aplikasi berbasis web yang dapat digunakan untuk mengatur uj
 Berikut adalah cara menggunakan aplikasi ini:
 
 ## Step 1) Download Semua Template excel dan Web
-Download dapat dilakukan secara manual dengan mengekstrak file .rar dari link berikut
+Download dapat dilakukan secara manual dengan mengekstrak file .rar dari [link berikut](hh)
 Anda juga bisa langsung clone repository ini menggunakan:
 ```S```
 
