@@ -1,22 +1,11 @@
-## Step 1) Set Up Project Folder
-To get started, you can use any web development IDE. 
-1. Create a New Project. 
-2. Create the following new files: 
-  * `index.html`
-  * `main.css`
-  * `script.js`
-3. Add general structure to `index.html` with a link to your CSS file:
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Login</title>
-  <link rel = "stylesheet" href = "main.css">
-</head>
-<body>
-</body>
-</html>
-```
+## Pengenalan Aplikasi Admin Ujian Kita
+Aplikasi ini adalah aplikasi berbasis web yang dapat digunakan untuk mengatur ujian online dan dapat digunakan secara gratis.
+Berikut adalah cara menggunakan aplikasi ini:
+
+## Step 1) Download Semua Template excel dan Web
+Download dapat dilakukan secara manual dengan mengekstrak file .rar dari link berikut
+Anda juga bisa langsung clone repository ini menggunakan:
+```S```
 
 ## Step 2) Set Up [Firebase](https://firebase.google.com/) Project. 
 If you don't already have an account, create one before starting. 
