@@ -99,7 +99,8 @@ Berikut adalah cara untuk membuat Ujian: <br>
 11. Jangan lupa untuk mengetes ujian sebelum menyuruh murid mengerjakannya agar
     tidak ada gangguan saat ujian.
 ```
-<hr>
-Aplikasi android 'Ujian Kita' dapat di ditemukan di [repositori ini](https://github.com/muhammadzaini213/Ujian_Kita).<br>
+
+## Sekian
+Aplikasi android 'Ujian Kita' dapat di ditemukan di [repositori](https://github.com/muhammadzaini213/Ujian_Kita).<br>
 
 ### TERIMAKASIH SUDAH BERKUNJUNG!!!
