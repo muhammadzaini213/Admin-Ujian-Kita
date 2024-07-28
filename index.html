@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="main.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+    * {
+      overflow: hidden;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+
+    }
+
+    body {
+      background-color: #0583D2;
+    }
+
+    h1 {
+      margin-bottom: 8%;
+      text-align: center;
+      font-family: "Fredoka One", cursive;
+      color: #0583D2;
+      letter-spacing: 0.05em;
+    }
+
+
+    p {
+      margin-top: 5%;
+      margin-bottom: 5%;
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid #000;
+    }
+
+    p span {
+      background: #fff;
+      padding: 0 10px;
+    }
+
+    input {
+      margin-bottom: 3%;
+    }
+
+    input:last-of-type {
+      margin-bottom: 0;
+    }
+
+    input,
+    button {
+      padding: 3%;
+      width: 100%;
+    }
+
+    #bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    .bot_link {
+      color: #000;
+      padding: 5%;
+    }
+
+    h6 {
+      text-align: center;
+      font-size: medium;
+      font-style: normal;
+      margin-top: 5vh;
+    }
+
+    .login-container {
+      background-color: white;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      width: 70%;
+      margin-left: 15%;
+      margin-top: 10vh;
+      height: 80vh;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    #submit,
+    #create-acct-btn,
+    #save,
+    #resetpassword {
+      background-color: #0583D2;
+      color: white;
+      border: none;
+      margin-top: 5%;
+      border-radius: 4px;
+
+    }
+
+    button:hover {
+      cursor: pointer;
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+
+    #sign-up {
+      border: none;
+    }
+
+    #create-acct {
+      display: none;
+    }
+
+    .return-btn {
+      background: none;
+      color: grey;
+      text-decoration: underline;
+      border: none;
+    }
+
+    .menu-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      /* Horizontal layout for larger screens */
+      height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .menu-item {
+      background-color: #ffffff;
+      /* White background for each menu item */
+      padding: 20px;
+      margin: 0 20px;
+      /* Increase margin for more horizontal gap */
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      flex: 1;
+      max-width: 200px;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+      /* Elevate effect on hover */
+    }
+
+    .menu-image {
+      width: 100%;
+      height: auto;
+      max-width: 150px;
+      margin-bottom: 10px;
+    }
+
+    .divider {
+      border: none;
+      border-bottom: 2px solid #ddd;
+      /* Horizontal line */
+      margin: 10px 0;
+      /* Space around the line */
+    }
+
+    .menu-title {
+      font-size: 18px;
+      color: #333;
+      margin: 0;
+      padding-top: 15px;
+      /* Space between line and title */
+      font-weight: bold;
+      /* Make title bold */
+    }
+
+    .menu-link {
+      text-decoration: none;
+      /* Remove underline from link */
+    }
+
+    .menu-description {
+      font-size: 14px;
+      color: #666;
+      border-bottom: 0px solid #000;
+      margin-top: 15px;
+      /* Space between title and description */
+    }
+
+    /* Media query for larger screens */
+    @media (min-width: 1200px) {
+      .menu-item {
+        max-width: 300px;
+        /* Increase max-width for larger screens */
+        padding: 30px;
+        /* Increase padding */
+      }
+
+      .menu-image {
+        max-width: 200px;
+        /* Increase image size */
+      }
+
+      .menu-title {
+        font-size: 24px;
+        /* Increase font size for titles */
+      }
+
+      .menu-description {
+        font-size: 16px;
+        /* Increase font size for descriptions */
+      }
+    }
+
+    /* Media query for smaller devices */
+    @media (max-width: 768px) {
+      .menu-container {
+        flex-direction: column;
+        /* Vertical layout for smaller screens */
+        height: auto;
+      }
+
+      .menu-item {
+        margin: 10px 0;
+        /* Adjust margin for vertical alignment */
+        max-width: none;
+        width: 100%;
+      }
+    }
+
+    .hidden {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+      position: absolute;
+      top: -9999px;
+      /* Move it out of view */
+      left: -9999px;
+    }
+
+    .visible {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.5s ease-in, visibility 0.5s ease-in;
+    }
+
+    .no-scroll {
+      overflow: hidden;
+      height: 100vh;
+      /* Prevent scrolling */
+    }
+
+    html {
+      scroll-behavior: smooth;
+      /* Smooth scrolling */
+    }
+
+    .center-content {
+      display: flex;
+      /* Enables flexbox layout */
+      justify-content: center;
+      /* Centers items horizontally */
+      align-items: center;
+      /* Centers items vertically */
+      height: 100vh;
+      /* Sets the height to fill the viewport */
+      /* Optional styling */
+      text-align: center;
+      /* Adds a background color for visibility */
+    }
+
+    h2{
+      color: whitesmoke;
+      font-family: "Fredoka One", cursive;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="center-content" id="loading">
+    <h2>Loading...</h2>
+  </div>
+  <div id="login_page" class="hidden">
+
+    <div class="login-container" id="login-container">
+      <div id="main">
+        <h1>Login Admin</h1>
+        <!-- <input id="schoolId" type="text" placeholder="ID Sekolah"> -->
+        <input id="email" type="email" placeholder="Email">
+        <input id="password" type="password" placeholder="Password">
+        <button id="submit">Log In</button>
+
+        <div id="bottom">
+          <a href="" id="forgot_btn" class="bot_link">Lupa password?</a>
+          <a href="" id="crt_btn" class="bot_link">Buat akun baru</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="login-container hidden" id="signup_container">
+      <div id="main_signup">
+        <h1>Buat akun baru</h1>
+        <input id="email_crt" type="text" placeholder="Email">
+        <input id="password_crt" type="email" placeholder="Password">
+        <button id="create-acct-btn">Buat akun</button>
+        <button class="return-btn" id="return_signup">Kembali</button>
+      </div>
+    </div>
+
+    <div class="login-container hidden" id="forgot_container">
+      <div id="main">
+        <h1>Pulihkan akun</h1>
+        <input id="email_reset" type="email" placeholder="Email">
+        <button id="resetpassword">Verifikasi Gmail</button>
+        <button class="return-btn" id="return_forgot">Kembali</button>
+      </div>
+    </div>
+
+    <div class="menu-container hidden" id="menu-container">
+      <!-- Menu Items -->
+      <a href="" id="student_menu" class="menu-link">
+        <div class="menu-item">
+          <img src="assets/student.png" alt="Menu 1" class="menu-image">
+          <p class="menu-title">Data Murid</p>
+          <p class="menu-description">Sesuaikan data murid dengan data di sekolah anda.</p>
+        </div>
+      </a>
+
+      <a id="exam_menu" href="" class="menu-link">
+        <div class="menu-item">
+          <img src="assets/exam.png" alt="Menu 2" class="menu-image">
+          <p class="menu-title">Ujian</p>
+          <p class="menu-description">Upload link google form untuk ujian disini.</p>
+        </div>
+      </a>
+      <a id="school_menu" href="" class="menu-link">
+        <div class="menu-item">
+          <img src="assets/school.png" alt="Menu 3" class="menu-image">
+          <p class="menu-title">Sekolah</p>
+          <p class="menu-description">Atur data sekolah serta aplikasi yang ingin diblokir.</p>
+        </div>
+      </a>
+
+      <a id="settings_menu" href="" class="menu-link">
+        <div class="menu-item">
+          <img src="assets/settings.png" alt="Menu 3" class="menu-image">
+          <p class="menu-title">Pengaturan</p>
+          <p class="menu-description">Atur URL database yang akan digunakan</p>
+        </div>
+      </a>
+
+    </div>
+
+
+    <div class="login-container hidden" id="settings_container">
+      <div id="main_school">
+        <h1>Database Ujian</h1>
+        <h5>Murid</h5>
+
+        <input id="student_database" type="text" placeholder="Tempelkan URL Excel murid disini">
+
+        <h5>Exam</h5>
+        <input id="test_database" type="text" placeholder="Tempelkan URL Excel exam disini">
+
+        <h5>Sekolah</h5>
+        <input id="school_database" type="text" placeholder="Tempelkan URL Excel sekolah disini">
+
+        <h5>ID Sekolah</h5>
+        <input id="school_id" type="text" readonly>
+        <br><br>
+        <button id="save">Simpan</button>
+        <button class="return-btn" id="return-btn">Kembali</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="module" src="https://apis.google.com/js/api.js"></script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+    import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBHGPIQtKEuFMdsSavJRGfpUrE18CJwWRA",
+      authDomain: "ujian-kita-b05f9.firebaseapp.com",
+      projectId: "ujian-kita-b05f9",
+      storageBucket: "ujian-kita-b05f9.appspot.com",
+      messagingSenderId: "858932764687",
+      appId: "1:858932764687:web:42221ee29f8dfa5683c37a",
+      measurementId: "G-WFLKQLNGEE"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+
+    function checkFirebaseReady() {
+      return new Promise((resolve, reject) => {
+        onAuthStateChanged(auth, (user) => {
+          // Firebase is initialized and ready
+
+          resolve();
+        }, (error) => {
+          // Error during Firebase initialization
+          reject(error);
+        });
+      });
+    }
+
+    // Check if Firebase is ready and show alert
+
+    const emailInput = document.getElementById('email');
+    const password = document.getElementById('password');
+
+    // const idInput = document.getElementById("schoolId");
+    const emailInput_crt = document.getElementById('email_crt');
+    const password_crt = document.getElementById('password_crt');
+
+    const email_reset = document.getElementById('email_reset');
+
+    const passwordInput = document.getElementById('password');
+    const submitButton = document.getElementById('submit');
+
+
+    const studentUrlInput = document.getElementById('student_database');
+    const examUrlInput = document.getElementById('test_database');
+    const schoolUrlInput = document.getElementById('school_database');
+
+    const studentMenu = document.getElementById('student_menu');
+    const examMenu = document.getElementById('exam_menu');
+    const schoolMenu = document.getElementById("school_menu");
+
+    const saveBtn = document.getElementById('save');
+
+    const createAccountBtn = document.getElementById('create-acct-btn');
+    const resetPasswordBtn = document.getElementById("resetpassword");
+
+    const returnBtn = document.getElementById('return-btn');
+
+
+    checkFirebaseReady()
+      .then(() => {
+        // Firebase is fully loaded and ready to use
+        document.getElementById('login_page').classList.remove('hidden');
+        document.getElementById('loading').classList.add('hidden');
+
+        emailInput.value = localStorage.getItem('email');
+        passwordInput.value = localStorage.getItem('password');
+      })
+      .catch((error) => {
+        // Handle errors during Firebase initialization
+        console.error("Error initializing Firebase:", error);
+        alert("Jaringan kurang stabil.");
+      });
+
+
+
+    createAccountBtn.addEventListener('click', async () => {
+      // Disable the button to prevent multiple clicks
+      createAccountBtn.disabled = true;
+      createAccountBtn.textContent = "Membuat..."; // Optional: change button text to indicate loading
+
+      var email_create = emailInput_crt.value.trim();
+      var password_create = password_crt.value.trim();
+
+      if (!email_create || !password_create) {
+        alert('Tolong masukkan email dan password.');
+        createAccountBtn.disabled = false; // Re-enable button if input is invalid
+        createAccountBtn.textContent = "Buat akun"; // Restore button text
+        return;
+      }
+
+      try {
+        // Create a new user with email and password
+        const userCredential = await createUserWithEmailAndPassword(auth, email_create, password_create);
+        const user = userCredential.user;
+
+        await sendEmailVerification(user);
+        alert('Akun berhasil dibuat! Jangan lupa verifikasikan akun anda terlebih dahulu!');
+      } catch (error) {
+        console.error('Gagal membuat akun:', error); // Log error details
+
+        // Display a user-friendly error message
+        if (error.code === 'auth/email-already-in-use') {
+          alert('Email sudah digunakan. Gunakan email lain.');
+        } else if (error.code === 'auth/invalid-email') {
+          alert('Email tidak valid.');
+        } else if (error.code === 'auth/weak-password') {
+          alert('Password terlalu lemah. Gunakan minimal 6 karakter.');
+        } else {
+          alert('Gagal membuat akun: ' + error.message);
+        }
+      } finally {
+        // Re-enable the button after the process is complete
+        createAccountBtn.disabled = false;
+        createAccountBtn.textContent = "Buat akun"; // Restore button text
+      }
+    });
+
+    resetPasswordBtn.addEventListener('click', async () => {
+      // Disable the button to prevent multiple clicks
+      resetPasswordBtn.disabled = true;
+      resetPasswordBtn.textContent = "Mengirim Email..."; // Optional: change button text to indicate loading
+
+      var emailToReset = email_reset.value.trim();
+
+      if (!emailToReset) {
+        alert('Tolong masukkan email anda.');
+        resetPasswordBtn.disabled = false; // Re-enable button if input is invalid
+        resetPasswordBtn.textContent = "Verifikasi Gmail"; // Restore button text
+        return;
+      }
+
+      try {
+        await sendPasswordResetEmail(auth, emailToReset);
+
+        // Show success message
+        alert('Email untuk mereset password anda dikirimkan. Periksa email anda!');
+       
+      } catch (error) {
+        // Handle errors here
+
+        // Display a user-friendly error message
+        if (error.code === 'auth/invalid-email') {
+          alert('Email tersebut tidak valid.');
+        } else if (error.code === 'auth/user-not-found') {
+          alert('Tidak ada pengguna yang menggunakan email ini. Cobalah membuat akun baru.');
+        } else {
+          alert('Gagal mengirim email reset password: ' + error.message);
+        }
+        window.location.reload(); // Reload the page to reset form state
+      } finally {
+        // Re-enable the button after the process is complete
+        resetPasswordBtn.disabled = false;
+        resetPasswordBtn.textContent = "Verifikasi Gmail"; // Restore button text
+        window.location.reload(); // Use location.reload() to reload the page
+      }
+    });
+
+
+    let schoolId = "";
+
+    saveBtn.addEventListener('click', async () => {
+      // Disable the button to prevent multiple clicks
+      saveBtn.disabled = true;
+      saveBtn.textContent = "Menyimpan..."; // Optional: change button text to indicate loading
+
+      const adminRef = doc(db, 'school_id', schoolId, "admin", "databases");
+
+      // Data to be written
+      const adminData = {
+        email: emailInput.value,
+        user_data: studentUrlInput.value,
+        test_data: examUrlInput.value,
+        school_data: schoolUrlInput.value
+      };
+
+      try {
+        // Set the document
+        await setDoc(adminRef, adminData);
+        alert('Url tersimpan');
+
+        const schoolRef = doc(db, "school_id", schoolId);
+        await setDoc(schoolRef, {
+          school_data: schoolUrlInput.value,
+          test_data: examUrlInput.value,
+          user_data: studentUrlInput.value
+        });
+      } catch (error) {
+        alert('Gagal menyimpan Url: ' + error.message); // Display the error message
+      } finally {
+        // Re-enable the button after the process is complete
+        saveBtn.disabled = false;
+        saveBtn.textContent = "Simpan"; // Restore button text
+      }
+    });
+
+
+
+    returnBtn.addEventListener('click', async () => {
+      menuContainer.classList.remove('hidden');
+      settingsContainer.classList.add('hidden');
+    });
+
+
+    submitButton.addEventListener('click', async () => {
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      // Disable the button to prevent multiple clicks
+      submitButton.disabled = true;
+      submitButton.textContent = "Loading..."; // Optional: change button text to indicate loading
+
+      try {
+        // Sign in the user with Firebase Auth
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
+        // Access user info
+        const user = userCredential.user;
+        const uid = user.uid;
+
+        // Handle successful login
+        console.log('User logged in:', uid);
+
+
+
+        const userRef = doc(db, "users", uid);
+
+        // Check if the document already exists
+        const userDoc = await getDoc(userRef);
+
+        if (userDoc.exists()) {
+          // Document exists, read the data
+          const userData = userDoc.data();
+          schoolId = userData.school_id;
+
+          loginContainer.classList.add('hidden');
+          menuContainer.classList.remove('hidden');
+
+          localStorage.setItem('email', email);
+          localStorage.setItem('password', password);
+          localStorage.setItem('school_id', schoolId);
+
+          const adminRef = doc(db, "school_id", schoolId, "admin", "databases");
+          const adminDoc = await getDoc(adminRef);
+
+          const adminData = adminDoc.data();
+
+
+
+          studentMenu.setAttribute('href', adminData.user_data);
+          studentMenu.setAttribute('target', "_blank");
+          examMenu.setAttribute('href', adminData.test_data);
+          examMenu.setAttribute('target', "_blank");
+          schoolMenu.setAttribute('href', adminData.school_data);
+          schoolMenu.setAttribute('target', "_blank");
+
+          document.getElementById('school_id').value = schoolId;
+
+          studentUrlInput.value = adminData.user_data;
+          examUrlInput.value = adminData.test_data;
+          schoolUrlInput.value = adminData.school_data;
+
+          alert('Login berhasil');
+        } else {
+          schoolId = String(Math.floor(Math.random() * 100000000)).padStart(8, '0');
+          // Document does not exist, create a new one
+          await setDoc(userRef, {
+            email: email,
+            school_id: schoolId // Initial data for the new user
+            // Add other fields for new user
+          });
+
+          const adminRef = doc(db, "school_id", schoolId, "admin", "databases");
+          await setDoc(adminRef, {
+            email: email,
+            school_data: "",
+            test_data: "",
+            user_data: ""
+          });
+
+          const schoolRef = doc(db, "school_id", schoolId);
+          await setDoc(schoolRef, {
+            school_data: "",
+            test_data: "",
+            user_data: ""
+          });
+
+          loginContainer.classList.add('hidden');
+          menuContainer.classList.remove('hidden');
+
+          const adminDoc = await getDoc(adminRef);
+
+          const adminData = adminDoc.data();
+
+          studentMenu.setAttribute('href', adminData.user_data);
+          examMenu.setAttribute('href', adminData.test_data);
+          schoolMenu.setAttribute('href', adminData.school_data);
+
+          document.getElementById('school_id').value = schoolId;
+
+          studentUrlInput.value = adminData.user_data;
+          examUrlInput.value = adminData.test_data;
+          schoolUrlInput.value = adminData.school_data;
+
+          alert('Login berhasil');
+        }
+
+      } catch (error) {
+        // Handle errors
+        if (error.code === "unavailable" || error.message.includes("network")) {
+          alert("Masalah jaringan terjadi. Silakan coba lagi.");
+        } else {
+          alert("Tolong verifikasikan akun anda");
+        }
+      } finally {
+        // Re-enable the button after the process is complete
+        submitButton.disabled = false;
+        submitButton.textContent = "Log In"; // Restore button text
+      }
+    });
+
+
+
+
+  </script>
+
+
+  <script>
+    const loginContainer = document.getElementById('login-container');
+    const forgotContainer = document.getElementById('forgot_container');
+    const crtContainer = document.getElementById('signup_container');
+    const menuContainer = document.getElementById('menu-container');
+    const settingsContainer = document.getElementById("settings_container");
+    const settingsMenu = document.getElementById('settings_menu');
+
+    const resetBtn = document.getElementById('forgot_btn');
+    const crtBtn = document.getElementById('crt_btn');
+
+    const returnForgot = document.getElementById('return_forgot');
+    const returnSignup = document.getElementById('return_signup');
+
+    settingsMenu.addEventListener('click', function (event) {
+      event.preventDefault();
+      menuContainer.classList.add('hidden');
+      settingsContainer.classList.remove('hidden');
+    });
+
+    crtBtn.addEventListener('click', function (event) {
+      event.preventDefault();
+      loginContainer.classList.add('hidden');
+      crtContainer.classList.remove('hidden');
+    })
+
+    resetBtn.addEventListener('click', function (event) {
+      event.preventDefault();
+      loginContainer.classList.add('hidden');
+      forgotContainer.classList.remove('hidden');
+    })
+
+    returnForgot.addEventListener('click', function (event) {
+      loginContainer.classList.remove('hidden');
+      forgotContainer.classList.add('hidden');
+    })
+
+    returnSignup.addEventListener('click', function (event) {
+      loginContainer.classList.remove('hidden');
+      crtContainer.classList.add('hidden');
+    })
+  </script>
+</body>
+
+</html>
