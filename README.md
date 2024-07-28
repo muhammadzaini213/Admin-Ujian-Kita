@@ -1,6 +1,6 @@
 ## Pengenalan Aplikasi Admin Ujian Kita
-#Aplikasi ini adalah aplikasi berbasis web yang dapat digunakan untuk mengatur ujian online dan dapat digunakan secara gratis.\n
-#Berikut adalah cara menggunakan aplikasi ini:
+Aplikasi ini adalah aplikasi berbasis web yang dapat digunakan untuk mengatur ujian online dan dapat digunakan secara gratis.<br>
+Berikut adalah cara menggunakan aplikasi ini:
 
 ## Step 1) Download Semua Template excel dan Web
 Download dapat dilakukan secara manual dengan mengekstrak file .rar dari link berikut
