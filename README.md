@@ -3,9 +3,12 @@ Aplikasi ini adalah aplikasi berbasis web yang dapat digunakan untuk mengatur uj
 Berikut adalah cara menggunakan aplikasi ini:
 
 ## Step 1) Download Semua Template excel dan Web
-Download dapat dilakukan secara manual dengan mengekstrak file .rar dari [link berikut](hh)
-Anda juga bisa langsung clone repository ini menggunakan:
-```S```
+Download dapat dilakukan secara manual dengan mengekstrak file .rar dari [link berikut](hh). <br>
+Anda juga bisa langsung clone repository ini menggunakan git bash: <br>
+```cd {file lokasi}```
+<br>
+```git init```
+```
 
 ## Step 2) Set Up [Firebase](https://firebase.google.com/) Project. 
 If you don't already have an account, create one before starting. 
