@@ -100,4 +100,6 @@ Berikut adalah cara untuk membuat Ujian: <br>
     tidak ada gangguan saat ujian.
 ```
 <hr>
-Aplikasi ujian dapat di unduh di repositori: 
+Aplikasi android 'Ujian Kita' dapat di ditemukan di [repositori ini](https://github.com/muhammadzaini213/Ujian_Kita).<br>
+
+### TERIMAKASIH SUDAH BERKUNJUNG!!!
