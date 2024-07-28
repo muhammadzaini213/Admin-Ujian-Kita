@@ -5,80 +5,22 @@ Berikut adalah cara menggunakan aplikasi ini:
 ## Step 1) Download Semua Template excel dan Web
 Download dapat dilakukan secara manual dengan mengekstrak file .rar dari [link berikut](hh). <br>
 Anda juga bisa langsung clone repository ini menggunakan git bash: <br>
-```cd {file lokasi}
+```
+cd {file lokasi}
 git init
-git clone https://github.com/muhammadzaini213/Admin-Ujian-Kita.git```
-
-## Step 2) Set Up [Firebase](https://firebase.google.com/) Project. 
-If you don't already have an account, create one before starting. 
-1. Click `Go to Console` &rarr; `Add Project` &rarr; Name your project.
-2. Click `Continue` &rarr; `Continue`.
-3. Choose `Default Account for Firebase`.
-4. Click `Create Project`. 
-5. When your project is ready, click `Complete`. 
-
-## Step 3) Connect Firebase to Your Project
-1. In the `Build` menu, select `Authentication`. 
-2. Click `Get Started`.
-3. In the `Sign-In Method` tab, select `Email/Password`. 
-4. Toggle the switch to `Enable`. 
-5. Click `Save`. 
-6. In `Project Settings`, scroll down to `Your apps`. 
-7. Choose `Web`. 
-8. In **Step 1, Register app**:
-    * Name your app &rarr; Click `Register app`. 
-9. In **Step 2, Add Firebase SDK**:
-    * Select `Use a <script> tag`.
-    * Copy the code snippet. 
-    * For now, paste it in `script.js`. The errors will be fixed when you revisit the JS file in **Step 5**. 
-    * Click `Continue to console`.
+git clone https://github.com/muhammadzaini213/Admin-Ujian-Kita.git
+```
+## Edit dan Upload File Excel Ke Google Spreadsheet
+Anda dapat menemukan file template excel dalam folder 'templates', edit sesuai kebutuhan anda, perlu diingat ada beberapa bagian penting yang tidak boleh terhapus dari excel. Untuk permulaan, anda hanya perlu memodifikasi 'Template Sekolah' dan 'Template Data Murid'. <br>
+Setelah upload selesai, anda perlu mengupload excel ke dalam google spreadsheet anda masing masing serta menyalakan 'dapat dibaca oleh semua orang yang memiliki link'
     
-## Step 4) HTML 
-The structure for this page is pretty simple. We'll have a container with 2 divs inside it. The site will switch the visibility of the divs depending on the task that the user is trying to complete. 
+## Masuk ke dalam website admin
+Website admin dapat dibuka melalui [link publik](admin-iota-brown.vercel.app) maupun dengan membuka file ```index.html``` yang dapat ditemukan dalam folder yang anda download.
 
-1.**Within the** `body`**, add a container for the log in elements:** 
-```html
-<div class = "login-container">
-</div>
-```
-2. **Within** `.login-container`**, you'll need 2 additional divs:** `#main` **and** `#create-acct`**:** 
-```html
-<div id= "main">
-</div>
+## Login Atau Daftar
+Jika anda baru pertama kali menggunakan aplikasi ini, ketuk ```Buat akun baru``` pada website admin. Masukkan email dan password yang ingin anda daftarkan. Setelah itu email akan dikirim agar anda dapat memverifikasi email anda. <br>
+PERINGATAN! UNTUK KEAMANAN DISARANKAN UNTUK MENGGUNAKAN EMAIL YANG TIDAK TERDAFTAR DENGAN AKUN PENTING! <br>
 
-<div id = "create-acct">
-</div>
-```
-3. `#main` **will be used to store the sign in elements:**
-```html
-<h1>Sign In</h1>
-<input id = "email" type = "text" placeholder = "Email"></input>
-<input id = "password" type = "password" placeholder = "Password"></input>
-<button id = "submit">Submit</button>
-<p><span>or</span></p>
-<button id = "sign-up">Sign Up</button>
-```
-4. `#create-acct` **will be used to store the create account elements:** 
-```html
-<h1>Create an Account</h1>
-<input id = "email-signup" type = "text" placeholder = "Email *"></input>
-<input id = "confirm-email-signup" type = "email" placeholder = "Confirm Email *"></input>
-<input id = "password-signup" type = "password" placeholder = "Password *"></input>
-<input id = "confirm-password-signup" type = "password" placeholder = "Confirm Password *"></input>
-<button id = "create-acct-btn">Create Account</button>
-<button id = "return-btn">Return to Login</button>
-```
-
-5. **At the bottom of the body, link `script.js`.**
-```html
- <script type = "module" src = "script.js"></script>
-```
-
- **2 things to note here:**
- 1. Adding "module" as the type is an important step to make sure that we can import methods from firebase later. 
- 2. If you attempt to run your project locally with the script linked in your HTML, you will get an error. More detail on this in **Step 5**.
- 
-## Step 5) CSS
 
 **Remove the default margins, padding, and box-sizing from all of the elements on the page.**
 ``` css
