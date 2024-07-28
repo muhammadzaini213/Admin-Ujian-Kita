@@ -5,10 +5,9 @@ Berikut adalah cara menggunakan aplikasi ini:
 ## Step 1) Download Semua Template excel dan Web
 Download dapat dilakukan secara manual dengan mengekstrak file .rar dari [link berikut](hh). <br>
 Anda juga bisa langsung clone repository ini menggunakan git bash: <br>
-```cd {file lokasi}```
-<br>
-```git init```
-```
+```cd {file lokasi}
+git init
+git clone https://github.com/muhammadzaini213/Admin-Ujian-Kita.git```
 
 ## Step 2) Set Up [Firebase](https://firebase.google.com/) Project. 
 If you don't already have an account, create one before starting. 
